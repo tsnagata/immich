@@ -465,7 +465,7 @@
 >
   <!-- Top navigation bar -->
   {#if $slideshowState === SlideshowState.None && !assetViewerManager.isShowEditor}
-    <div class="col-start-1 row-span-2 row-start-1 transition-transform">
+    <div class="col-span-4 col-start-1 row-span-1 row-start-1 transition-transform">
       <AssetViewerNavBar
         {asset}
         {album}
@@ -485,7 +485,7 @@
   {/if}
 
   {#if $slideshowState != SlideshowState.None}
-    <div class="absolute inset-s-0 top-0 flex w-full justify-start">
+    <div class="absolute left-0 top-1/4 flex flex-col items-start">
       <SlideshowBar
         {isFullScreen}
         assetType={previewStackedAsset?.type ?? asset.type}
@@ -524,7 +524,7 @@
         assetId={asset.livePhotoVideoId!}
         cacheKey={asset.thumbhash}
         projectionType={asset.exifInfo?.projectionType}
-        loopVideo={$slideshowState !== SlideshowState.PlaySlideshow}
+        loopVideo={true}
         onPreviousAsset={() => navigateAsset('previous')}
         onNextAsset={() => navigateAsset('next')}
         onVideoEnded={() => (assetViewerManager.isPlayingMotionPhoto = false)}
@@ -541,7 +541,7 @@
         {asset}
         cacheKey={asset.thumbhash}
         projectionType={asset.exifInfo?.projectionType}
-        loopVideo={$slideshowState !== SlideshowState.PlaySlideshow}
+        loopVideo={true}
         onPreviousAsset={() => navigateAsset('previous')}
         onNextAsset={() => navigateAsset('next')}
         onClose={closeViewer}

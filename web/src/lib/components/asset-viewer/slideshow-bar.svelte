@@ -186,16 +186,6 @@
       aria-label={$t('exit_slideshow')}
     />
 
-    {#if !isVideoSlide}
-      <IconButton
-        variant="ghost"
-        shape="round"
-        color="secondary"
-        icon={progressBarStatus === ProgressBarStatus.Paused ? mdiPlay : mdiPause}
-        onclick={() => (progressBarStatus === ProgressBarStatus.Paused ? progressBar?.play() : progressBar?.pause())}
-        aria-label={progressBarStatus === ProgressBarStatus.Paused ? $t('play') : $t('pause')}
-      />
-    {/if}
     <IconButton
       variant="ghost"
       shape="round"
@@ -212,6 +202,18 @@
       onclick={onNext}
       aria-label={$t('next')}
     />
+	
+	{#if !isVideoSlide}
+      <IconButton
+        variant="ghost"
+        shape="round"
+        color="secondary"
+        icon={progressBarStatus === ProgressBarStatus.Paused ? mdiPlay : mdiPause}
+        onclick={() => (progressBarStatus === ProgressBarStatus.Paused ? progressBar?.play() : progressBar?.pause())}
+        aria-label={progressBarStatus === ProgressBarStatus.Paused ? $t('play') : $t('pause')}
+      />
+    {/if}
+	
     <IconButton
       variant="ghost"
       shape="round"
